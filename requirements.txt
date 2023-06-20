@@ -1,5 +1,6 @@
 # requirements.txt - save this in your project's root folder
 
+datetime
 Django
 gunicorn
 psycopg2
