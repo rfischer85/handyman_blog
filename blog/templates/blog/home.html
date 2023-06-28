@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends "blog/base.html" %}
+
+{% block main %}
+<p>Welcome to my blog's homepage!</p>
+
+<section class="latest-article-preview">
+    {% for post in latest_posts %}
+    <article>
+        <h2>{{ post.title }}</h2>
+        <em>{{ post.published|timesince }} ago</em>
+        {{ post.content|linebreaks }}
+    </article>
+    {% endfor %}
+</section>
+{% endblock %}
+</body>
+</html>
