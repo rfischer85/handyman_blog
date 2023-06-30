@@ -8,10 +8,16 @@ from django.db import models
 from django.utils import timezone
 
 
+class TopicQuerySet(models.QuerySet):
+    def get_topics(self):
+        return Topic.objects.all()
+
+
 class Topic(models.Model):
     """
     The representation of a topic.
     """
+    objects = TopicQuerySet.as_manager()
     name = models.CharField(
         max_length=50,
         unique=True,  # No duplicates

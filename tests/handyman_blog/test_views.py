@@ -1,6 +1,11 @@
 """
 test_views.py
 """
+import pytest
+
+
+# Mark this test module as requiring the database
+pytestmark = pytest.mark.django_db
 
 def test_index_ok(client):
     """
