@@ -6,11 +6,18 @@ The file defining the data models for the blog app.
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
+from django.db.models import Count
 
 
 class TopicQuerySet(models.QuerySet):
+    """
+    Modifying the QuerySet class for Topic.
+    """
     def get_topics(self):
-        return Topic.objects.all()
+        """
+        Finding all topics with number of posts
+        """
+        return Topic.objects.annotate(Count('blog_posts')).values('name', 'blog_posts__count')
 
 
 class Topic(models.Model):
@@ -41,7 +48,7 @@ class Topic(models.Model):
 
 class PostQuerySet(models.QuerySet):
     """
-    Modified QuerySet class.
+    Modified QuerySet class for Post.
     """
     def published(self):
         """

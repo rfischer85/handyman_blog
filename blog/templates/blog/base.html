@@ -24,9 +24,22 @@
     </nav>
 
     <main id="main-content">
-    {% block main %}
-    <!-- Content for the main block will be rendered here -->
-    {% endblock %}
+    <div>
+        {% block main %}
+        <!-- Content for the main block will be rendered here -->
+        {% endblock %}
+    </div>
+
+    <aside id="sidebar">
+        <section id="topic-list">
+            <h3>Topics</h3>
+            <ul>
+                {% for topic in topics %}
+                    <li>{{ topic.name }} ({{topic.post_count }})</li>
+                {% endfor %}
+            </ul>
+        </section>
+    </aside>
     </main>
 
     <!-- The footer -->

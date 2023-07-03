@@ -8,12 +8,13 @@
 {% extends "blog/base.html" %}
 
 {% block main %}
-<p>Welcome to my blog's homepage!</p>
+<h2>Welcome to my blog's homepage!</h2>
 
 <section class="latest-article-preview">
+    <h3>Recent Blog Posts:</h3>
     {% for post in latest_posts %}
     <article>
-        <h2>{{ post.title }}</h2>
+        <h4>{{ post.title }}</h4>
         <em>{{ post.published|timesince }} ago</em>
         {{ post.content|linebreaks }}
     </article>

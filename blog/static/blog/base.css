@@ -36,6 +36,7 @@ a:hover {
     color: #666;
     padding: 0;
     margin: 0;
+    margin-top: 2px;
 }
 
 /* Style the top nav */
@@ -64,7 +65,9 @@ a:hover {
 /* Style the main content */
 #main-content {
     margin-top: 1rem;
-    margin-bottom: 2rem;
+    display: grid;
+    /* The grid has 2 columns. 1 with auto width, the other is 200px wide */
+    grid-template-columns: auto 200px;
 }
 
 /* Style the footer */
